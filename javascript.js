@@ -62,7 +62,7 @@ actualSetting.seconds = time.seconds ;
 
 if(condition != "paused" )   {   
 
-hours = time.hours ;
+hours   = time.hours ;
 minutes = time.minutes ;
 seconds = time.seconds;
 
@@ -73,11 +73,19 @@ initialTime = new  Date().getTime() + 1000 + hours * 3600000 + minutes * 60000 +
 
 timerId = setInterval(() => {
 
+
+
 interTime = new Date().getTime() ;
+
+console.log(timeLeft);
+
+
+
+timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
 
 if(timeLeft == 0){ clearInterval(timerId)};
 
-timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
+
 
 /*
 
@@ -91,12 +99,13 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 
 display = hours + ":" + minutes + ":" + seconds ;
 
-
 */
-console.log(timeLeft);
+
+
 
 
 postMessage(timeLeft);
+
 
 }, 1000)
 
