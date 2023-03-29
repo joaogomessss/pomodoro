@@ -1,11 +1,13 @@
 // This code will run in the Web Worker
-let timeLeft = 0;
+let timeLeft;
 
 let interTime;
 
 let hours;
 let minutes;
 let seconds;
+
+let timerId;
 
 let condition;
 
@@ -16,7 +18,7 @@ let display;
 
 function startTimer(time) {
 
-let timerId;
+
 
 actualSetting.hours = time.hours ;
 actualSetting.minutes = time.minutes ;
@@ -40,6 +42,8 @@ interTime = new Date().getTime() ;
 
 timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
 
+if(timeLeft == 0){ clearInterval(timerId)};
+
 hours   = Math.floor(timeLeft / 3600 )
 minutes = Math.floor((timeLeft % 3600) / 60 );
 seconds = Math.floor(timeLeft % 60 );
@@ -53,6 +57,7 @@ display = hours + ":" + minutes + ":" + seconds ;
 console.log(timeLeft)
 
 postMessage(display);
+
 
 }, 1000)
 
