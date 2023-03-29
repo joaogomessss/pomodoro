@@ -79,21 +79,19 @@ hours   = Math.floor(timeLeft / 3600 )
 minutes = Math.floor((timeLeft % 3600) / 60 );
 seconds = Math.floor(timeLeft % 60 );
 
-if(hours   < 10 ){ hours   = "0" + hours };
+if(hours   < 10 ){ hours   = "0" + hours   };
 if(minutes < 10 ){ minutes = "0" + minutes };
 if(seconds < 10 ){ seconds = "0" + seconds };
 
 display = hours + ":" + minutes + ":" + seconds ;
 
-
-if(timeLeft <= 0){clearInterval(timerId) };
-
 console.log(timeLeft)
-console.log(display);
 
 postMessage(display);
-}, 1000);
-}
+
+if(timeLeft <= 0){ clearInterval(timerId); console.log("time over")}
+
+}, 1000)}
 
 
 
@@ -136,7 +134,7 @@ startButton.onclick  = () => Start();
 function Start(){ // this function will send a message to the webworker start the pomodor
     
     worker.postMessage({ type: 'start', data: time }); 
-    startButton.textContent = "VEGETA";
+    startButton.textContent = "Pause";
     startButton.onclick  = () => pause();
         
 };
