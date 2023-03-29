@@ -40,9 +40,11 @@ timerId = setInterval(() => {
 
 interTime = new Date().getTime() ;
 
+if(timeLeft == 0){ clearInterval(timerId)};
+
 timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
 
-
+/*
 
 hours   = Math.floor(timeLeft / 3600 )
 minutes = Math.floor((timeLeft % 3600) / 60 );
@@ -54,13 +56,12 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 
 display = hours + ":" + minutes + ":" + seconds ;
 
+
+*/
 console.log(timeLeft);
 
-if(timeLeft <= 0){ clearInterval(timerId)
-console.log(display);
-};
 
-postMessage(display);
+postMessage(timeLeft);
 
 }, 1000)
 
