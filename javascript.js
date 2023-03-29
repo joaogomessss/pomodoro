@@ -85,25 +85,12 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 
 display = hours + ":" + minutes + ":" + seconds ;
 
-if (timeLeft == 0) {
 
-  let bruna = new Notification("pameiras");
+if(timeLeft == 0){clearInterval(timerId) };
 
-clearInterval(timerId);
-
-/*hours   = actualSetting.hours ;
-minutes = actualSetting.minutes ;
-seconds = actualSetting.seconds ; */
-
-/*if(hours   < 10 ){ hours   = "0" + hours };
-if(minutes < 10 ){ minutes = "0" + minutes };
-if(seconds < 10 ){ seconds = "0" + seconds };*/
-
-display = hours + ":" + minutes + ":" + seconds ;
-
+console.log(timeLeft)
 console.log(display);
 
-}
 postMessage(display);
 }, 1000);
 }
@@ -172,7 +159,7 @@ worker.onmessage = (event) => {
 
   if(event.data == "00:00:00"){
     
-    startButton.textContent = "goku";
+    startButton.textContent = "Start";
   };
 
 

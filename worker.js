@@ -50,25 +50,12 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 
 display = hours + ":" + minutes + ":" + seconds ;
 
-if (timeLeft <= 0) {
 
-clearInterval(timerId);
+if(timeLeft == 0){clearInterval(timerId) };
 
-/*hours   = actualSetting.hours ;
-minutes = actualSetting.minutes ;
-seconds = actualSetting.seconds ; */
-
-/*if(hours   < 10 ){ hours   = "0" + hours };
-if(minutes < 10 ){ minutes = "0" + minutes };
-if(seconds < 10 ){ seconds = "0" + seconds };*/
-
-display = hours + ":" + minutes + ":" + seconds ;
-
+console.log(timeLeft)
 console.log(display);
 
-
-
-}
 postMessage(display);
 }, 1000);
 }
