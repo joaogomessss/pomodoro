@@ -86,7 +86,7 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 display = hours + ":" + minutes + ":" + seconds ;
 
 
-if(timeLeft == 0){clearInterval(timerId) };
+if(timeLeft <= 0){clearInterval(timerId) };
 
 console.log(timeLeft)
 console.log(display);
@@ -136,7 +136,7 @@ startButton.onclick  = () => Start();
 function Start(){ // this function will send a message to the webworker start the pomodor
     
     worker.postMessage({ type: 'start', data: time }); 
-    startButton.textContent = "Pause";
+    startButton.textContent = "VEGETA";
     startButton.onclick  = () => pause();
         
 };

@@ -51,7 +51,7 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 display = hours + ":" + minutes + ":" + seconds ;
 
 
-if(timeLeft == 0){clearInterval(timerId) };
+if(timeLeft <= 0){clearInterval(timerId) };
 
 console.log(timeLeft)
 console.log(display);
