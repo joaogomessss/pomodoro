@@ -50,9 +50,7 @@ if(seconds < 10 ){ seconds = "0" + seconds };
 
 display = hours + ":" + minutes + ":" + seconds ;
 
-if (timeLeft == 0) {
-
-let bruna = new Notification("pameiras");
+if (timeLeft <= 0) {
 
 clearInterval(timerId);
 
