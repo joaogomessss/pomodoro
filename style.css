@@ -1,0 +1,101 @@
+
+body{  
+
+margin:0;
+padding:0;
+background-color:blue;
+
+
+}
+
+
+#container {
+
+     display : flex;
+     align-items: center;
+     flex-direction: column; 
+     justify-content: space-between;
+     height:85vh;
+
+}
+
+#display {
+  
+text-align: center;
+color : white;
+font-family: 'Courier New', Courier, monospace;
+font-size:20vw;
+
+}
+
+
+@media (min-width:700px){
+
+#display {
+  font-size:12vw;
+}
+
+}
+
+
+
+
+input{
+
+      height:20px;
+      border-radius:5px ;
+
+
+
+}
+
+
+
+
+
+#button-container {
+               
+               text-align: center;
+               display:flex;
+               width: 100%;
+               justify-content: space-evenly;
+
+               
+               
+
+
+
+}
+
+
+
+button {
+
+        background-color : rgb(103, 212, 103);
+        border-style:none;
+        border-radius: 5px;
+        font-size: xx-large;
+        min-width:100px;
+        
+}
+
+
+
+#edit-container {
+
+          display:grid;
+          
+          margin:20px;
+          width: 100%;
+          max-width:500px;
+          
+          
+          
+}
+
+input{
+
+margin-bottom:5px;
+
+
+};
