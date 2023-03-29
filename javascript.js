@@ -35,7 +35,7 @@ let time = {hours:"" , minutes:"" , seconds:"" , };
 const workerScript = `
 // This code will run in the Web Worker
 let timeLeft = 0;
-let timerId = null;
+
 let interTime;
 
 let hours;
@@ -51,7 +51,7 @@ let display;
 
 function startTimer(time) {
 
-    
+let timerId;
 
 actualSetting.hours = time.hours ;
 actualSetting.minutes = time.minutes ;
@@ -89,9 +89,11 @@ console.log(timeLeft)
 
 postMessage(display);
 
-if(timeLeft <= 0){ clearInterval(timerId); console.log("time over")}
+}, 1000)
 
-}, 1000)}
+
+
+}
 
 
 
@@ -122,7 +124,6 @@ stopTimer();
 break;
 }
 };
-
 `;
 const blob = new Blob([workerScript], { type: 'application/javascript' });
 const blobUrl = URL.createObjectURL(blob);
