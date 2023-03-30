@@ -158,19 +158,14 @@ onmessage = (event) => {
     
     timerId = setInterval(() => {
     
-    if(timeLeft <= 1){  clearInterval(timerId) ; return };
+    
     
     
     interTime = new Date().getTime() ;
     
     timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
     
-   
-    
-    
-    
-    
-    /*
+
     hours   = Math.floor(timeLeft / 3600 )
     minutes = Math.floor((timeLeft % 3600) / 60 );
     seconds = Math.floor(timeLeft % 60 );
@@ -178,15 +173,22 @@ onmessage = (event) => {
     if(hours   < 10 ){ hours   = "0" + hours   };
     if(minutes < 10 ){ minutes = "0" + minutes };
     if(seconds < 10 ){ seconds = "0" + seconds };
-    
+
     display = hours + ":" + minutes + ":" + seconds ;
     
-    */
+
+    if(timeLeft <= 1){  clearInterval(timerId)
+    
+        display = hours + ":" + minutes + ":" + seconds ;
+
+
+     };
     
     
     
     
-    postMessage(timeLeft);
+    
+    postMessage(display);
     
     
     }, 1000)
@@ -209,6 +211,8 @@ case 'stop':
 stopTimer();
 break;
 }*/
+
+
 
 
 `;
