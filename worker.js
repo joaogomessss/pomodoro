@@ -133,7 +133,7 @@ onmessage = (event) => {
     
     timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
     
-    if(timeLeft == 0){ clearInterval(timerId)};
+    if(timeLeft <= 0){ clearInterval(timerId)};
     
     
     
