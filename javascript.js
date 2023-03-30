@@ -175,13 +175,7 @@ onmessage = (event) => {
 
     display = hours + ":" + minutes + ":" + seconds ;
 
-    if(timeLeft == 0){  clearInterval(timerId) } ;
-    
-
-    
-    
-    
-    
+    if(timeLeft <= 0){  clearInterval(timerId) ; display = "00:00:00" } ;
     
     
     postMessage(display);
@@ -207,6 +201,8 @@ case 'stop':
 stopTimer();
 break;
 }*/
+
+
 
 
 
