@@ -123,7 +123,7 @@ onmessage = (event) => {
     
     timerId = setInterval(() => {
     
-    if(timeLeft == 1){  clearInterval(timerId) };
+    if(timeLeft <= 1){  clearInterval(timerId) ; return };
     
     
     interTime = new Date().getTime() ;
