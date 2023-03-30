@@ -158,10 +158,9 @@ onmessage = (event) => {
     
     timerId = setInterval(() => {
     
-    
-    
-    
     interTime = new Date().getTime() ;
+
+    if(timeLeft <= 1){  clearInterval(timerId) ; timeLeft = 0 ; let b =  new Notification("Time is over")};
     
     timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
     
@@ -177,12 +176,7 @@ onmessage = (event) => {
     display = hours + ":" + minutes + ":" + seconds ;
     
 
-    if(timeLeft <= 1){  clearInterval(timerId)
     
-        display = hours + ":" + minutes + ":" + seconds ;
-
-
-     };
     
     
     
@@ -211,6 +205,8 @@ case 'stop':
 stopTimer();
 break;
 }*/
+
+
 
 
 
