@@ -135,7 +135,7 @@ postMessage(display);
 
 onmessage = (event) => {
 
-  console.log(event.data)
+    if(event.data == "stop"){ clearInterval(timerId)};
 
   time = event.data;
 
@@ -158,22 +158,18 @@ onmessage = (event) => {
     
     timerId = setInterval(() => {
     
-    
+    if(timeLeft == 0){  clearInterval(timerId) };
     
     interTime = new Date().getTime() ;
     
-    console.log(timeLeft);
-    
-    
-    
     timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
     
-    if(timeLeft <= 0){ clearInterval(timerId)};
+   
+    
     
     
     
     /*
-    
     hours   = Math.floor(timeLeft / 3600 )
     minutes = Math.floor((timeLeft % 3600) / 60 );
     seconds = Math.floor(timeLeft % 60 );
@@ -213,6 +209,7 @@ stopTimer();
 break;
 }*/
 
+
 `;
 const blob = new Blob([workerScript], { type: 'application/javascript' });
 const blobUrl = URL.createObjectURL(blob);
@@ -242,6 +239,8 @@ function pause() {// This function will send a message  to the webworker pause t
 
 
 worker.onmessage = (event) => { 
+
+  
 
   display.textContent = event.data;
 

@@ -100,7 +100,7 @@ postMessage(display);
 
 onmessage = (event) => {
 
-    console.log(event.data)
+    if(event.data == "stop"){ clearInterval(timerId)};
 
   time = event.data;
 
@@ -123,22 +123,18 @@ onmessage = (event) => {
     
     timerId = setInterval(() => {
     
-    
+    if(timeLeft == 0){  clearInterval(timerId) };
     
     interTime = new Date().getTime() ;
     
-    console.log(timeLeft);
-    
-    
-    
     timeLeft = Math.floor((initialTime - interTime) / 1000)  ;
     
-    if(timeLeft <= 0){ clearInterval(timerId)};
+   
+    
     
     
     
     /*
-    
     hours   = Math.floor(timeLeft / 3600 )
     minutes = Math.floor((timeLeft % 3600) / 60 );
     seconds = Math.floor(timeLeft % 60 );
